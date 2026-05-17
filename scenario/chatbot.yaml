@@ -1,0 +1,61 @@
+name: EnergyTracker
+version: 1.0.0
+description: Трекер энергии - определение пика продуктивности
+
+entryPoint:
+  - entryPoint.sc
+
+botEngine: v2
+language: ru
+
+sts:
+  noMatchThreshold: 0.2
+caila:
+  noMatchThreshold: 0.2
+
+tests:
+  include:
+    - test.xml
+
+intents:
+  - name: start_test
+    examples:
+      - запусти трекер энергии
+      - трекер энергии
+      - проверь память
+      - тест на память
+      - начать тест
+      - давай проверим
+
+  - name: repeat_digits
+    examples:
+      - повтори цифры
+      - покажи еще раз
+      - не запомнил
+      - еще раз
+
+  - name: submit_answer
+    examples:
+      - готово
+      - ответить
+      - проверить
+      - отправить
+
+  - name: show_stats
+    examples:
+      - моя статистика
+      - мои результаты
+      - покажи аналитику
+      - сколько тестов
+
+  - name: show_peak
+    examples:
+      - пик продуктивности
+      - лучшее время
+      - когда лучше
+
+  - name: help
+    examples:
+      - помощь
+      - что делать
+      - как пользоваться

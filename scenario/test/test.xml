@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+    <test name="start_test">
+        <input>запусти трекер энергии</input>
+        <expect>
+            <event type="smart_app_data">
+                <field name="type">START_TEST</field>
+            </event>
+        </expect>
+    </test>
+    
+    <test name="repeat_digits">
+        <input>повтори цифры</input>
+        <expect>
+            <event type="smart_app_data">
+                <field name="type">REPEAT_DIGITS</field>
+            </event>
+        </expect>
+    </test>
+    
+    <test name="submit_answer">
+        <input>1</input>
+        <expect>
+            <event type="smart_app_data">
+                <field name="type">SUBMIT_ANSWER</field>
+            </event>
+        </expect>
+    </test>
+</tests>
