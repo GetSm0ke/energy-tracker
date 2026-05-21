@@ -463,15 +463,13 @@ function App() {
         const newCount = prevCount + 1;
 
         let nextPeak = peakTimeRef.current;
+        let peakMessage = '';
         if (newCount >= 5) {
             const peak = calculatePeak(newResults);
             if (peak) {
                 nextPeak = peak;
                 setPeakTime(peak);
-                sendEventToScenario('peak_found', {
-                    peakTime: peak,
-                    phrase: `По пяти прохождениям наиболее удачный интервал приходится на ${peak}. Используйте его для задач, где важна концентрация.`,
-                });
+                peakMessage = ` По пяти прохождениям наиболее удачный интервал приходится на ${peak}.`;
             }
         }
 
@@ -508,14 +506,7 @@ function App() {
         sendEventToScenario('test_completed', {
             score: score,
             total: 5,
-            phrase: message,
-        });
-
-        sendEventToScenario('stats_updated', {
-            testCount: newCount,
-            bestScore: Math.max(...newResults.map((r) => r.score), 0),
-            peakTime: nextPeak || 'ещё не определён',
-            phrase: `Пройдено серий: ${newCount} из пяти. ${nextPeak ? `Сейчас оценённый пик: ${nextPeak}.` : 'Для оценки по часам завершите все пять серий.'}`,
+            phrase: `${message}${peakMessage}`,
         });
     };
     
