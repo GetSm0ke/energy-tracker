@@ -47,6 +47,13 @@ function get_event_payload(context) {
     if (request &&
         request.payload &&
         request.payload.data &&
+        request.payload.data.server_action &&
+        request.payload.data.server_action.parameters) {
+        return request.payload.data.server_action.parameters;
+    }
+    if (request &&
+        request.payload &&
+        request.payload.data &&
         request.payload.data.eventData) {
         return request.payload.data.eventData;
     }
